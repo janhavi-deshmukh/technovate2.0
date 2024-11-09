@@ -1,24 +1,53 @@
-<!--
-   index.html
-   Author:
-   Author URI: https://
-   Author Github URI: https://www.github.com/
-   Project Repository URI: https://github.com/
-   Description: The main UI for your Chrome Extension
-   License: MIT
--->
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
   <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>CO2 Emission Checker</title>
+    <title>CO₂ Emission Checker</title>
     <link href="style.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <h1>CO2 Emission Data</h1>
-    <div id="co2-emission">Loading...</div>
-    <script src="script.js"></script>
+    <div class="popup-container">
+      <div class="popup-content">
+        <!-- Top Section: Product Information and Circular Progress Bar -->
+        <div class="top-section">
+          <div class="left-section">
+            <h2 id="productTitle">Product Name</h2>
+            <ul id="lcaList">
+              <li>Material Extraction: 10 kg CO₂</li>
+              <li>Manufacturing: 8 kg CO₂</li>
+              <li>Transportation: 6 kg CO₂</li>
+              <li>Usage: 4 kg CO₂</li>
+              <li>Disposal: 2 kg CO₂</li>
+            </ul>
+          </div>
+          <div class="right-section">
+            <div class="circular-progress">
+              <span id="progress-value">60%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Section: Recommended Products -->
+        <div class="bottom-section">
+          <h3>Recommended Products</h3>
+          <div class="recommended-products">
+            <div class="recommended-product">
+              <img src="product1.jpg" alt="Recommended Product 1">
+              <p>Recommended Product 1</p>
+            </div>
+            <div class="recommended-product">
+              <img src="product2.jpg" alt="Recommended Product 2">
+              <p>Recommended Product 2</p>
+            </div>
+            <div class="recommended-product">
+              <img src="product3.jpg" alt="Recommended Product 3">
+              <p>Recommended Product 3</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="popup.js"></script>
   </body>
 </html>

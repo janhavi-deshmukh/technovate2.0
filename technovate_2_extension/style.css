@@ -1,0 +1,116 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Darkened background to focus on popup */
+    overflow: hidden;
+  }
+  
+  .container {
+    width: 80vw;  /* Adjusted to occupy 80% of the viewport width */
+    max-width: 800px;
+    height: 80vh; /* Occupies 80% of the viewport height */
+    background-color: white;
+    padding: 30px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .top-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .left-section {
+    flex: 1;
+    padding-right: 15px;
+  }
+  
+  .left-section h2 {
+    font-size: 1.4em;
+    margin-bottom: 12px;
+    color: #333;
+  }
+  
+  .left-section ul {
+    list-style-type: none;
+  }
+  
+  .left-section ul li {
+    margin: 6px 0;
+    color: #555;
+  }
+  
+  .right-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .circular-progress {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: conic-gradient(
+      #4caf50 calc(var(--progress) * 1%), 
+      #ddd 0%
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .circular-progress span {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    position: absolute;
+  }
+  
+  #progress-value {
+    font-size: 1.4em;
+    font-weight: bold;
+  }
+  
+  /* Bottom Row */
+  .bottom-row {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    margin-top: 20px;
+    justify-content: center;
+  }
+  
+  .recommended-product {
+    width: calc(33.33% - 10px);
+    text-align: center;
+  }
+  
+  .recommended-product img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 6px;
+  }
+  
+  .recommended-product p {
+    font-size: 0.9em;
+    color: #333;
+  }
+  
