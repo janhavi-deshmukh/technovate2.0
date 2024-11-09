@@ -6,7 +6,7 @@ const HeroSection = () => {
   return (
     <Box
       sx={{
-        height: '80vh',
+        height: '100vh',  // Full viewport height
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -16,6 +16,8 @@ const HeroSection = () => {
         backgroundPosition: 'center',
         color: '#ffffff',
         textAlign: 'center',
+        width: '100%',
+        marginTop: 0
       }}
     >
       <Container maxWidth="md">

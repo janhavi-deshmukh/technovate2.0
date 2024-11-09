@@ -1,11 +1,12 @@
 // NavBar.js
 import React from 'react';
-import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
+import { AppBar, Toolbar, Typography, Button } from '@mui/material';
+// import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
 // import zzz
 
 const NavBar = () => {
   return (
-    <AppBar position="static" sx={{ backgroundColor: '#2E7D32' }}>
+    <AppBar position="static" sx={{ backgroundColor: '#2E7D32', width: '100%' }}>
       <Toolbar>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           EcoShop
