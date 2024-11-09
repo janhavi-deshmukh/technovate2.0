@@ -7,6 +7,7 @@
 // License: MIT
 
 chrome.action.onClicked.addListener((tab) => {
+  console.log("background.js called")
     chrome.scripting.executeScript({
       target: { tabId: tab.id },
       files: ['content.js']
