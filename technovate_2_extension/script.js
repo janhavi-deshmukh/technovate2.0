@@ -1,6 +1,7 @@
 
 function getRecommendedProducts(parsedData) {
-  fetch(`https://real-time-amazon-data.p.rapidapi.com/search?query=${encodeURIComponent(parsedData.product_title)}`, {
+
+  fetch(`https://real-time-amazon-data.p.rapidapi.com/search?query=${encodeURIComponent(parsedData.productTitle)}`, {
     method: 'GET',
     headers: {
       'x-rapidapi-key': '62dddc529amsha15a775e60e2121p130226jsn1b950b185372', // Add your actual RapidAPI key here
@@ -9,7 +10,7 @@ function getRecommendedProducts(parsedData) {
   })
     .then(response => response.json())
     .then(data => {
-      console.log("API response:", data['data']);
+      // console.log("API response:", data['data']);
 
       const products = data['data'].products; // Ensure we're accessing the products array directly
       const carousel = document.getElementById('carousel');
@@ -49,31 +50,91 @@ function getRecommendedProducts(parsedData) {
     });
 }
 
-function updateProductInfo(parsedData) {
-  // Get references to HTML elements
+// aysnc function fetch_emission(parsedData) {
+//   const request_body={
+//     name:parsedData.productTitle,
+//     desc:parsedData.aboutThisItem,
+//     info:parsedData.additionalInformation,
+//   }
+
+  
+//   const data=await fetch('http://127.0.0.1:3000/analyze', {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify(request_body) // Use parsedData here instead of productData
+//   })
+//   .then(response => response.json()) // Parse the JSON response
+//   .then(data => {
+//     console.log("Emission data:", data);
+//     // You can handle the response data here
+//     return data; // This will return the data, but not directly usable since fetch is async
+//   })
+//   .catch((error) => {
+//     console.error('Error:', error);
+//     return null; // Return null or handle the error appropriately
+//   });
+// }
+async function fetch_emission(parsedData) {
+  const request_body = {
+    name: parsedData.productTitle,
+    desc: parsedData.aboutThisItem,
+    info: parsedData.additionalInformation,
+  };
+
+  try {
+    // Await the fetch request and parse the response as JSON
+    const response = await fetch('http://127.0.0.1:3000/analyze', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(request_body), // Send the request body
+    });
+
+    const data = await response.json(); // Parse the response as JSON
+    console.log("Emission data:", data);
+    return data; // Return the data directly after the request completes
+
+  } catch (error) {
+    console.error('Error:', error);
+    return null; // Return null or handle the error appropriately
+  }
+}
+
+
+
+async function updateProductInfo(parsedData) {
   console.log(parsedData)
+  
   const productTitleElement = document.getElementById('productTitle');
   const lcaListElement = document.getElementById('lcaList');
   const progressValueElement = document.getElementById('progress-value');
-
-  // Update product title
+  
   productTitleElement.innerHTML = parsedData.productTitle || "No Product Name";
+  // Get references to HTML elements
+  const data=await fetch_emission(parsedData)
 
-  // Update the LCA list dynamically
-  // lcaListElement.innerHTML = `
-  //   <li>Material Extraction: ${parsedData.materialExtraction || '0'} kg CO₂</li>
-  //   <li>Manufacturing: ${parsedData.manufacturing || '0'} kg CO₂</li>
-  //   <li>Transportation: ${parsedData.transportation || '0'} kg CO₂</li>
-  //   <li>Usage: ${parsedData.usage || '0'} kg CO₂</li>
-  //   <li>Disposal: ${parsedData.disposal || '0'} kg CO₂</li>
-  // `;
+  estimated_CO2=data['data'].CO2EmissionEstimate.estimatedCO2Emission
+  aspect_considered=data['data'].aspectsConsidered
+  
+  aspect_considered.forEach((aspect) => {
+    // Extract the key (everything before the colon)
+    const key = aspect.split(':')[0].trim();
+    // Create a list item with the key and append it to the list
+    const listItem = document.createElement('li');
+    listItem.textContent = key;
+    lcaListElement.appendChild(listItem);
+  });
 
-  // Update the progress value dynamically
-  progressValueElement.innerHTML = `${parsedData.progressValue || '0'}%`;
+  progressValueElement.innerHTML = `${estimated_CO2 || '0 kg'}`;
 
   // Optionally, log the values for debugging
   console.log('Updated Product Info:', parsedData);
 }
+
+
 
 
 
@@ -93,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
           if (result.co2Emission) {
             const { url, co2Emission } = result.co2Emission;
             const parsedData = JSON.parse(co2Emission);
-            
+            console.log(parsedData)
             // emissionDiv.innerHTML = `
             //   URL: ${url}<br>
             //   Product Title: ${parsedData.productTitle}<br>

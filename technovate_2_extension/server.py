@@ -93,7 +93,9 @@ def index():
     return "Hello, World!"
 
 @app.route('/analyze', methods=['POST'])
+
 def analyze_product():
+    print("request made")
     # print(request.json)
     try:
         product_data = request.json
@@ -102,13 +104,14 @@ def analyze_product():
         prompt = f"""
        You are a sustainability analysis expert specializing in lifecycle assessment and carbon footprint analysis. Your task is to evaluate a product's environmental impact based on the provided details and recommend similar, more sustainable products.
 
+       
 ### Product Information:
 - Name: {product_data.get('name', 'Unknown')}
 - Description: {product_data.get('desc', 'Unknown')}
 - Additional_info: {product_data.get('info', 'Unknown')}
 - Price: {product_data.get('price', 'Unknown')}
 
-### Task:
+### Task:   
 1. Provide an estimated CO₂ emission in kilograms (kg) for the product based on general sustainability principles.
 2. List the aspects considered when calculating the CO₂ emission (such as material type, weight, manufacturing location, etc.).
 

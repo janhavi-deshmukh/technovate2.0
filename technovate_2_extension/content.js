@@ -22,10 +22,6 @@ console.log("Product Title:", titleText);
 console.log("Additional Information:", additionalInfoText);
 console.log("About this item:", aboutThisItemText);
 
-
-
-
-
   return {
     productTitle: titleText,
     additionalInformation: additionalInfoText,
