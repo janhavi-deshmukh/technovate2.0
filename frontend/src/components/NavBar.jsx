@@ -1,6 +1,8 @@
 // NavBar.js
 import React from 'react';
 import { AppBar, Toolbar, Typography, Button } from '@mui/material';
+// import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
+// import zzz
 
 const NavBar = () => {
   return (
@@ -9,6 +11,7 @@ const NavBar = () => {
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           EcoShop
         </Typography>
+        
         <Button color="inherit">Home</Button>
         <Button color="inherit">Products</Button>
         <Button color="inherit">About Us</Button>

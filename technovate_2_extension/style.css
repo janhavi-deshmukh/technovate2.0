@@ -1,0 +1,213 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  width: 500px;
+  align-items: center;
+  /* height: 100vh; */
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  overflow: hidden;
+}
+
+.popup-container {
+  width: 100%;
+  max-width: 800px;
+  /* height: 80vh; */
+  height: 500px;
+  background-color: white;
+  padding: 30px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+  margin:10px;
+}
+
+.left-section {
+  flex:1;
+}
+
+.left-section h2 {
+  font-size: 1.4em;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.left-section ul {
+  list-style-type: none;
+}
+
+.left-section ul li {
+  margin: 6px 0;
+  color: #555;
+}
+
+.right-section {
+  /* width: 35%; */
+  flex:2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circular-progress {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: conic-gradient(#4caf50 calc(60 * 1%), #ddd 0%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.circular-progress span {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #333;
+  position: absolute;
+}
+
+/* Bottom Row Styling */
+.bottom-row {
+  text-align: left;
+}
+
+.bottom-row h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.recommended-products {
+  display: flex;
+  justify-content: space-around;
+  /* text-align: left; */
+  overflow: hidden;
+  scroll-behavior: smooth;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.recommended-product {
+  display: flex;
+  flex-direction: column;
+  width: calc(33.33% - 10px);
+  text-align: left;
+}
+
+.recommended-product img {
+  width: 100%;
+  height: 140px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 6px;
+}
+
+.recommended-product p {
+  font-size: 0.9em;
+  color: #333;
+}
+
+/* Favorites Icon */
+.favorites-container {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Dropdown for Favorites */
+.favorites-dropdown {
+  display: none;
+  position: absolute;
+  top: 35px;
+  right: 0;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  width: 200px;
+  z-index: 10;
+  padding: 10px;
+}
+
+.favorites-dropdown h4 {
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 1em;
+}
+
+.favorites-dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.favorites-dropdown ul li {
+  padding: 6px 0;
+  color: #555;
+}
+
+.favorites-dropdown ul li:not(:last-child) {
+  border-bottom: 1px solid #ddd;
+}
+
+.recommended-product button {
+  width: 120px; /* Adjust the width to your preference */
+  padding: 8px 12px;
+  height: 30px;
+  font-size: 10px;
+  cursor: pointer;
+  background-color: #4CAF50; /* Example background color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  margin-top: 5px;
+  transition: background-color 0.3s;
+}
+
+.recommended-product button:hover {
+  background-color: #45a049; /* Darker shade for hover effect */
+}
+
+/* Carousel styling */
+.carousel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.carousel-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1.2em;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.carousel-button:hover {
+  background-color: #45a049;
+}
+
+
+
+
