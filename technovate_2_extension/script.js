@@ -1,8 +1,11 @@
 
-  
+console.log("Product Title:", titleText);
+console.log("Additional Information:", additionalInfoText);
+console.log("About this item:", aboutThisItemText);
 
 document.addEventListener('DOMContentLoaded', function() {
   // Get the active tab
+        
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     if (tabs[0]) {
       // Execute content script
@@ -25,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
             emissionDiv.innerText = 'No data available. Please try again.';
           }
         });
+        
       }).catch(err => {
         console.error('Failed to execute content script:', err);
         document.getElementById('co2-emission').innerText = 'Error: Could not access page data';
