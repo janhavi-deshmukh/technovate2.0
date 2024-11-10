@@ -22,7 +22,7 @@ body {
   height: 500px;
   background-color: white;
   padding: 30px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); */
   border-radius: 12px;
   display: flex;
   flex-direction: column;
@@ -96,16 +96,17 @@ body {
   display: flex;
   justify-content: space-around;
   /* text-align: left; */
-  overflow: hidden;
+  overflow-x: scroll;
   scroll-behavior: smooth;
   gap: 15px;
   margin-top: 15px;
 }
 
 .recommended-product {
+  min-width: 120px;
   display: flex;
   flex-direction: column;
-  width: calc(33.33% - 10px);
+  /* width: calc(33.33% - 10px); */
   text-align: left;
 }
 
@@ -181,6 +182,7 @@ body {
   transition: background-color 0.3s;
 }
 
+.recommended-product-box{}
 .recommended-product button:hover {
   background-color: #45a049; /* Darker shade for hover effect */
 }
@@ -210,4 +212,31 @@ body {
 
 
 
+#lcaList {
+  list-style-type: none; /* Remove default bullets */
+  padding-left: 0;
+}
+
+#lcaList li {
+  position: relative;
+  padding-left: 25px; /* Space for the checkmark */
+  margin-bottom: 8px; /* Space between list items */
+  font-size: 16px; /* Adjust font size as needed */
+}
+
+#lcaList li:before {
+  content: '✔'; /* Checkmark character */
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: green; /* Green color for the checkmark */
+  font-size: 18px; /* Size of the checkmark */
+}
+
+
+#aspects-header {
+  font-size: 15px; /* Make the header bold and a bit bigger */
+  font-weight: bold;
+  margin-bottom: 10px; /* Space between header and the list */
+}
 

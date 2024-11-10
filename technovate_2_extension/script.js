@@ -4,7 +4,7 @@ function getRecommendedProducts(parsedData) {
   fetch(`https://real-time-amazon-data.p.rapidapi.com/search?query=${encodeURIComponent(parsedData.productTitle)}`, {
     method: 'GET',
     headers: {
-      'x-rapidapi-key': '62dddc529amsha15a775e60e2121p130226jsn1b950b185372', // Add your actual RapidAPI key here
+      'x-rapidapi-key': 'RAPID_API_KEY', // Add your actual RapidAPI key here
       'x-rapidapi-host': 'real-time-amazon-data.p.rapidapi.com'
     }
   })
@@ -93,7 +93,9 @@ async function fetch_emission(parsedData) {
       body: JSON.stringify(request_body), // Send the request body
     });
 
-    const data = await response.json(); // Parse the response as JSON
+    console.log("before response json")
+    const data = await response.json(); 
+    console.log("after")// Parse the response as JSON
     console.log("Emission data:", data);
     return data; // Return the data directly after the request completes
 
@@ -116,6 +118,7 @@ async function updateProductInfo(parsedData) {
   // Get references to HTML elements
   const data=await fetch_emission(parsedData)
 
+  // console.log(data)
   estimated_CO2=data['data'].CO2EmissionEstimate.estimatedCO2Emission
   aspect_considered=data['data'].aspectsConsidered
   
@@ -176,4 +179,3 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
-

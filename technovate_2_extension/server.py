@@ -8,7 +8,7 @@ app = Flask(__name__)
 CORS(app)  # This enables CORS for all routes
 
 # Configure Gemini API
-genai.configure(api_key="AIzaSyA3iT4fsZCG_kO0KjynxL4POSZPfXGInwQ")
+genai.configure(api_key="GEMINI_API_KEY")
 
 # Create the model
 generation_config = {
