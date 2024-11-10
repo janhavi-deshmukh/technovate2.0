@@ -116,17 +116,16 @@ Give response in JSON format.
 
 
         """
-        
-        # Get response from Gemini
         response = chat_session.send_message(prompt)
-        print(response)
-        # Parse the response to extract structured data
-        # This is a simplified parsing - you might need to adjust based on actual response format
-        response_text = response.text
+        # Get response from Gemini
+        response_text = response.text.strip().replace("```json", "").replace("```", "")
+        
+        # Parse the cleaned JSON string to a Python dictionary
+        response_json = json.loads(response_text)
         
         return jsonify({
             'success': True,
-            'data': response_text
+            'data': response_json
         })
     except Exception as e:
         return jsonify({
